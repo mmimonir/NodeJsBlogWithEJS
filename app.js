@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 8080
 
 mongoose
   .connect(
-    'mongodb+srv://mmimonir:sr34suKWb11Axp6n@cluster0-sy8bx.mongodb.net/exp-blog?retryWrites=true&w=majority',
+    'mongodb+srv://mmimonir:@bp253236@cluster0-sy8bx.mongodb.net/exp-blog?retryWrites=true&w=majority',
     { useNewUrlParser: true }
   )
   .then(() => {
