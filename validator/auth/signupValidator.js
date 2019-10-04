@@ -3,8 +3,8 @@ const User = require('../../models/User')
 
 module.exports = [
   body('username')
-    .isLength({ min: 2, max: 15 })
-    .withMessage('Username Must Be Between 2 to 15 Chars')
+    .isLength({ min: 2, max: 255 })
+    .withMessage('Username Must Be Between 2 to 255 Chars')
     .custom(async (username) => {
       let user = await User.findOne({ username })
       if (user) {

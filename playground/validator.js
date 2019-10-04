@@ -12,7 +12,7 @@ router.post(
       .not()
       .isEmpty()
       .withMessage('Username Cannot be Empty')
-      .isLength({ max: 15 })
+      .isLength({ max: 255 })
       .withMessage(`Username can not be greater than 15 Character`)
       .trim(),
     check('email')
