@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const app = express()
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
+const flash = require('connect-flash')
 
 // Import Routes
 const authRoutes = require('./routes/authRoute')
@@ -13,6 +14,9 @@ const dashboardRoutes = require('./routes/dashboardRoute')
 const { bindUserWithRequest } = require('./middleware/authMiddleware')
 const setLocals = require('./middleware/setLocals')
 
+// Playground Routes
+// const validatorRoute = require('./playground/validator')
+
 const MONGODB_URI =
   'mongodb+srv://mmimonir:bp253236@cluster0-sy8bx.mongodb.net/exp-blog?retryWrites=true&w=majority'
 const store = new MongoDBStore({
@@ -20,7 +24,7 @@ const store = new MongoDBStore({
   collection: 'sessions',
   expires: 1000 * 60 * 60 * 2
 })
-// Setpur View Engine
+// Setup View Engine
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 
@@ -37,12 +41,14 @@ const middleware = [
     store
   }),
   bindUserWithRequest(),
-  setLocals()
+  setLocals(),
+  flash()
 ]
 
 app.use(middleware)
 app.use('/auth', authRoutes)
 app.use('/dashboard', dashboardRoutes)
+// app.use('/playground', validatorRoute)
 
 app.get('/', (req, res) => {
   res.json({
