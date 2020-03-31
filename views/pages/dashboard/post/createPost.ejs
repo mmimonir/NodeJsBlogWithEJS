@@ -1,0 +1,49 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.css">
+<div class="container-fluid vh-100">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 ">
+            <div class="card card-body mx-5 py-5">
+                <form action="/posts/create" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title">Enter Your Post Title</label>
+                        <input name="title" type="text" id="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="tiny-mce-post-body">Enter Your Post Body</label>
+                        <textarea name="body" id="tiny-mce-post-body" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Enter Some Tags (Max 10) </label>
+                        <input name="tags" id="tags" type="text" placeholder="tag1, tag2, tag3" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input name="post-thumbnail" class="custom-file-input" type="file" id="inputGroupFile">
+                            <label for="inputGroupFile" class="custom-file-label">Choose File</label>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Create Post">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include('../../../partials/fotter.ejs') %>
+<script src="https://cdn.tiny.cloud/1/p7xp7osowgoemb3top4n686qoaqk0281vpt6k343fyesfdqz/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<script src="/scripts/tinymce.js"></script>
+<script>
+    $('#inputGroupFile').on('change', function (e) {
+        let filename = e.target.files[0].name
+        $(this).next('.custom-file-label').html(filename)
+    })
+</script>
+</body>
+
+</html>

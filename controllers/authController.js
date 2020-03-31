@@ -109,3 +109,4 @@ exports.logoutController = (req, res, next) => {
     return res.redirect('/auth/login')
   })
 }
+ 

@@ -13,15 +13,17 @@ const profileSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      maxlength: 30
+      maxlength: 50
     },
     title: {
       type: String,
+      required: true,
       trim: true,
       maxlength: 100
     },
     bio: {
       type: String,
+      required: true,
       trim: true,
       maxlength: 500
     },
