@@ -13,7 +13,7 @@
     "bcryptjs": "^2.4.3",
     "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
-    "config": "^3.2.4",
+    "config": "^3.3.8",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.2.0",
     "debug": "^4.1.1",
